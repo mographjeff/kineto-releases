@@ -2,6 +2,12 @@
 
 The short version of each entry also appears in the app: **File ▸ What's New in Kineto…**
 
+## 0.1.7 — July 24, 2026
+
+- **Automatic updates on Windows.** Kineto now updates itself in place — a passive progress-bar install, no more re-downloading installers. Installs from 0.1.6 onward pick this up automatically.
+- **What's New dialog** (File ▸ What's New in Kineto…) — opens once automatically after each update.
+- Update prompts now include release notes so you can see what you're getting before installing.
+
 ## 0.1.6 — July 24, 2026
 
 **Fixed**
