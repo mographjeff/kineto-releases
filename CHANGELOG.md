@@ -2,6 +2,20 @@
 
 The short version of each entry also appears in the app: **File ▸ What's New in Kineto…**
 
+## 0.1.9 — July 30, 2026
+
+Stability release, driven by the first field crash reports from 0.1.8.
+
+**Stability**
+
+- **Fixed a crash with many shape layers.** GPU memory for shape anti-aliasing is now shared across layers instead of allocated per layer, so comps with hundreds of shape layers no longer exhaust GPU memory. This hit hardest on Windows, where dedicated video memory is a fixed budget.
+- **Much lower GPU memory use while zooming** the viewer.
+- **GPU errors no longer crash the app.** The frame recovers and the error is reported instead (if crash reporting is enabled).
+
+**Fixes**
+
+- Deleting or renaming a composition now shows a message when it can't be done (such as deleting the root comp), instead of silently doing nothing.
+
 ## 0.1.8 — July 29, 2026
 
 **Animation & easing**
