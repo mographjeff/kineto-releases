@@ -2,6 +2,47 @@
 
 The short version of each entry also appears in the app: **File ▸ What's New in Kineto…**
 
+## 0.1.8 — July 29, 2026
+
+**Animation & easing**
+
+- **Rebuilt graph editor.** Drag bezier handles directly on the curve to shape custom easing, with a toolbar of one-click presets, numeric handle fields, and a drawer for saving your own presets. Custom cubic-bezier easing is reachable from the UI for the first time.
+- **Multi-select keyframes** in both the timeline and the graph editor: shift-click or drag a marquee, then move them as a group or re-ease them all at once.
+- **Quick-ease per side.** The ease buttons now apply to the incoming side, the outgoing side, or both.
+- The graph editor shows every selected layer at once, with click-to-solo layer headers.
+- Keyframes are now visible on all timeline layers, not just the selected one, and drag with a live preview.
+
+**Performance**
+
+- Smoother 4K playback and faster effect rendering (reader fast path, natural-size quads, texture pooling).
+- Video export is roughly 1.3–2x quicker — the writer now runs on its own thread with double-buffered GPU readback.
+
+**Keying**
+
+- **Screen Pre-blur** cleans up speckled mattes: it feeds matte analysis only, so your output colors and despill stay sharp.
+- **Screen Softness** now feathers the matte edge spatially, in pixels (0–100), instead of narrowing the key.
+
+**New tools**
+
+- **Motion paths in the viewer** — see and drag position keyframes directly on the canvas.
+- Two new geometry operators: **Smooth** and **Round Corners**.
+- The audio meter is now its own dockable panel.
+
+**Interface**
+
+- Redesigned welcome screen, with a link to the new Kineto Discord.
+- Panel title bars now host their own controls: the timeline transport is centered with timecode and loop mode, and the graph editor's easing tools live in its bar.
+- Frame-step shortcuts (⌘←/⌘→, PageUp/PageDown) and Home/End to jump to start/end.
+
+**Windows**
+
+- **Fixed a black screen on launch** affecting some NVIDIA machines. Kineto now defaults to the DX12 backend, which composes correctly with the WebView2 layer. Set `WGPU_BACKEND` to override.
+- **Installers are now code-signed** via Azure Trusted Signing — no more "unknown publisher" warning.
+
+**Other**
+
+- Opt-in crash reporting. Enable it in Settings to send anonymous crash reports; it's off unless you turn it on.
+
 ## 0.1.7 — July 24, 2026
 
 - **Automatic updates on Windows.** Kineto now updates itself in place — a passive progress-bar install, no more re-downloading installers. Installs from 0.1.6 onward pick this up automatically.
