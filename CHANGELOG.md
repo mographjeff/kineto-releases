@@ -2,6 +2,12 @@
 
 The short version of each entry also appears in the app: **File ▸ What's New in Kineto…**
 
+## 0.2.1 — August 3, 2026
+
+Same-day fix for 0.2.0.
+
+- **The graph editor's easing buttons work again for keyframes selected in the timeline.** Selecting a keyframe in the timeline expands to one selection entry per channel in the graph editor, which tripped the multi-select safety rule and made every easing button (and Paste) silently do nothing. Keyframes clicked directly in the graph were unaffected.
+
 ## 0.2.0 — August 3, 2026
 
 The largest release yet: a 49-item UX pass driven by beta-group feedback, plus a month of new surfaces.
