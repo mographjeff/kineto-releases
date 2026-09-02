@@ -2,6 +2,59 @@
 
 The short version of each entry also appears in the app: **File ▸ What's New in Kineto…**
 
+## 0.4.0 — September 1, 2026
+
+The 3D look-development pass reaches its end, time remap arrives for video and audio, and a week of tester feedback lands as about fifty interface fixes.
+
+**A new name is coming.** The app is being renamed shortly. It is the same app and your projects are unaffected, but the download and the icon will change name — this is the warning before they do.
+
+### 3D look development
+
+The arc that began in 0.3.4 is complete. A new scene arrives lit rather than flat.
+
+- **Area lights with real softness**, and an `Emit light` option on surfaces so a bright plane lights its neighbours instead of only looking bright.
+- **Contact shadows** where objects meet, and a shadow bias measured as a world distance — which is what lets area lights cast at all.
+- **Light rigs.** Applying a rig replaces the comp's lighting as a set, in its own folder, rather than leaving two lighting setups to reconcile by hand.
+- **Environment contrast.** The default environment has range in it now instead of an even grey.
+- **Clicking a 3D object selects the object you clicked.** Picking used to hit-test flat cards, so a mesh was selectable by its bounding box rather than its shape. It ray-casts the real geometry now, and hovering shows the silhouette before you commit.
+- **Materials and the Library.** Texture sets can be imported from a folder or a ZIP and reused across projects, alongside environments, objects and light rigs.
+
+### Time
+
+- **Time remap for video footage.** Arm the stopwatch on Time Remap and a clip plays to whatever curve you draw. The layer bar shows one tick per source frame — bunched where it races, spread where it crawls — so a retime is legible without scrubbing it.
+- **Audio follows the remap**, in the preview and in the export. A retimed clip is resampled by position rather than by rate, so it does not drift.
+- **A precomp runs on its own clock.** Nested comps were sampled at the parent's time, so a precomp with its own speed or remap drew the wrong frame — and effects inside one never animated at all. Both are fixed, in the viewer and in exports.
+- **Exports sample what they should.** Effect keyframes, forked precomp time and remaps were all missed on the way out.
+
+### Interface
+
+- **Shy layers.** Mark a row shy and the timeline's new Shy button hides it, in both the timeline and the layers panel. A row filter only: nothing about what renders changes.
+- **Blend modes show themselves.** Move down the list and each mode appears on the frame as you pass it; leave without choosing and the original comes back. The whole pass is one undo entry.
+- **Onion skinning gets its options** — frames each side, strength, and a colour per side. The colours had been in the file since onion skinning shipped and never reached the screen.
+- **Fill, stroke and width edit what is selected**, rather than only setting the style of the next shape, and are available with the Move and Edit Path tools.
+- **Layer numbers** in both panels, **lock and solo** in the timeline, and selecting a layer scrolls both panels to it.
+- **⌘↑ / ⌘↓** step the selection through the stack; **⌥-wheel** zooms the time axis under the cursor; **⇧** constrains the pen to an axis and holds a graph keyframe at its time.
+- **Chain buttons** for rectangle width/height, ellipse radii and cube width/height, preserving the ratio rather than squaring the shape.
+- **Tool help moved behind a `?`** instead of sitting permanently across the options bar.
+- **Workspaces** can be saved over and renamed.
+
+### Fixes
+
+- **Snapping only considers layers you can see.** It pulled to layers hidden by solo, layers outside their in/out range, matte sources drawn into another layer, and cameras.
+- **The anchor point tool no longer moves a layer whose position is keyframed.** The compensating move was written as a base value, which a keyframe outvotes.
+- **Locking a layer locks it in the timeline.** Slide, trim, razor, reorder and keyframe drags all ignored the lock.
+- **A copied effect brings its keyframes.** Effect parameters animate on the layer, so a copy cloned the effect and left every curve behind.
+- **Files dropped on the Project panel stay there** instead of also landing in the open comp.
+- **New solids match the comp size** rather than a fixed 400×300.
+- **Align moves a keyframed layer**, by keyframing it.
+- **Every vector import gets its own comp**, not only multi-layer ones.
+- **Adding Trim Paths no longer makes the shape disappear.**
+- **A duplicate lands above its original and stays in its group**; a paste lands above the selection rather than on top of the stack.
+- **The Background layer draws in a 3D comp again.**
+- **Middle-drag pans from every tool**, and the ruler gets its mousedown back.
+- **The playhead rests on the last frame**, not one past it.
+- Eighteen tooltips stopped telling Windows users to press ⌥, the Settings tab strip wraps so Windows keeps its last tab, and six controls asked for a theme token that was never defined.
+
 ## 0.3.5 — August 25, 2026
 
 Same-day fix for 0.3.4.
