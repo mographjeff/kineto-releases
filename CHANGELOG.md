@@ -2,6 +2,28 @@
 
 The short version of each entry also appears in the app: **File ▸ What's New in Kineto…**
 
+## 0.4.1 — September 9, 2026
+
+A Figma frame becomes a Kineto composition, with the designer's layer tree intact rather than a flat picture of it. Kineto also runs on Linux for the first time.
+
+### Import from Figma
+
+- **File ▸ Import from Figma…** takes a link from Figma's **Share ▸ Copy link**. A frame arrives as a composition built the way it was designed: every frame and group a layer group, every text box an editable text layer in its font, size, weight and colour, every shape a shape layer with its fills, strokes and gradients. Import one frame, or every frame in the file at once, each as its own comp.
+- **Photos come across as footage**, fitted the way Figma fits them and cropped to their shape, so rounded photo cards keep their corners. A drop shadow becomes the layer's Drop Shadow style, a layer blur a Gaussian Blur, and a Figma mask a hidden layer that the layers above it use as their track matte.
+- **Reads are never spent twice.** Figma limits how often a file can be read — a free-plan file allows six reads a month — so every response is kept on disk. Importing the same frame again, or the rest of the file after the first look-up, costs nothing, and the dialog shows how many reads you have spent.
+- **What can't come across is counted and shown** after the import runs, rather than quietly going missing: text in a font you don't have arrives editable in the default face and is named, background blurs and inner shadows are listed, and auto-layout never comes across.
+- Your Figma personal access token goes in **Settings ▸ Integrations**, beside the assistant key.
+
+### Linux
+
+- **Kineto runs on Linux**, as an AppImage or a `.deb`. Built on Ubuntu 22.04, so 22.04 / Debian 12 and newer are the bar.
+- **It needs an Xorg session, not Wayland.** On Wayland the renderer paints over the whole interface and the window looks blank, so Kineto says so on launch and tells you how to switch: log out, pick an Xorg or X11 session at the login screen, and start it again. Worth knowing before you download — Ubuntu 24.04 and Fedora default to Wayland on most hardware, while Mint and Cinnamon default to X11.
+- This is the first Linux build, so it is a download only: Linux copies do not update themselves yet. A later release will turn that on once this one has been confirmed working.
+
+### Fixes
+
+- **SVG imports keep their blend modes.** A layer exported from Figma or Illustrator with Multiply or Screen used to arrive as Normal.
+
 ## 0.4.0 — September 1, 2026
 
 The 3D look-development pass reaches its end, time remap arrives for video and audio, and a week of tester feedback lands as about fifty interface fixes.
