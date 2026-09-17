@@ -1,6 +1,88 @@
-# Kineto Changelog
+# Brio Changelog
 
-The short version of each entry also appears in the app: **File ▸ What's New in Kineto…**
+The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
+
+## 0.5.0 — September 17, 2026
+
+Kineto is now Brio. This release brings the store online, a full particle system, the complete layer-style set, shape layers that select like layers, an importer for After Effects projects, and a long list of timeline, Library and 3D work from the September testing rounds.
+
+### Brio
+
+- **The app is Brio.** Every name, menu, file and dialog says Brio now — *con brio*, the musical direction for "with spirit". Your projects, presets, settings and licence are untouched by the rename, and installs update in place.
+- A new app icon, drawn on the macOS icon grid. The site is [brio.art](https://brio.art).
+
+### Buying a licence
+
+- **Brio is $299, once.** Every 1.x update is included, free and forever; Brio 2 will be a separate purchase. Nothing expires and there is nothing to renew.
+- **Settings ▸ Licence** takes your key and activates this computer. A licence covers two computers; **Deactivate This Computer** frees a seat so you can move it. **Check Now** re-confirms with the store, and Brio keeps working offline between checks.
+- **The trial never locks you out.** A trial that has ended keeps opening, editing and saving; only renders carry a watermark until a key is entered. The render dialog says so before it starts, with a link to the Licence pane.
+
+### Particles
+
+- **A particle layer.** Emitters, physics and forces, with trails, bursts on death and puffs on bounce as auxiliary systems. Particles can be 2D shapes with softness, **sprites made from any layer**, or **3D meshes** with instanced shadows, lit billboards and light emitters.
+- **Soft particles** fade into the surface behind them instead of cutting a hard line; **shadowlets** let billboards and sprites cast their silhouette; **volumetric particles** fill a volume with fog that the scene's lights ray-march through.
+- **A path emitter** births particles along a shape or text layer's outline.
+- **Every simulation parameter keys**, animated fields update the moment you set a keyframe, and **over-life graphs** shape each particle's size, opacity and colour across its life. Orientation follows motion or stays fixed in the world.
+- **The Library's Particles tab** holds a 33-preset pack with hover loops, and the Library's sprites and objects are ready to use as particles.
+
+### Layer styles
+
+- **The full set:** Drop Shadow, Inner Shadow, Outer Glow, Inner Glow, Bevel & Emboss, Satin, Colour Overlay, Gradient Overlay and Stroke, each with blend modes and undo, an eyedropper for colours, and a master switch. The Colour Overlay alpha bug is gone.
+- **Glows gain a Bloom technique** that falls off like real light, and bloom in 3D comps is realistic by default. Effect and style rows use the same pill switch and dim when off.
+
+### Shape layers
+
+- **Select the layer, edit every shape.** Click a shape layer and an edit reaches all of its shapes; pick groups and individual shapes as a real selection when you want just some. **⌘G groups shapes.**
+- **A group can be painted.** A fill and stroke on the group draws over its shapes merged into one path; the paint is remembered when switched off and seeded from what's on screen. Fill and Stroke twirl closed, and a painted group shows only its own paint.
+- **Booleans keep their exact curves**, and a Pie reaches the edge of its shape. Name a shape by double-clicking it; the shape list reads top-down like the layers do.
+- Aligned strokes no longer tear at a deep concave corner, and a contour that returns to its start is treated as closed the way Illustrator draws it.
+
+### Import from After Effects
+
+- **File ▸ Import from After Effects…** reads a file written by the **BrioExport** script, which ships inside Brio. Comps arrive with their layers, keyframes and easing, masks, mattes, effects and layer styles, built in dependency order. It's an early cut — tell us what it misses.
+- A `.brio.json` dropped on the window or picked from **File ▸ Import…** opens the same dialog.
+
+### Timeline
+
+- **Markers.** ⇧M adds one at the playhead; drag to move, ⇧-drag to snap to the playhead, layer in and out points and keyframes; a right-click menu, undo, and **Lock Markers**. Only a left-click removes a comp marker.
+- **U and P/S/R/A/O show and hide rows the After Effects way:** each shows only its property, ⇧ adds it to the rows already showing, and each toggles its own row without closing the others.
+- **Property rows show their value at the playhead** and scrub it; edits reach every selected layer, and Scale has a link button. Drag across twirls, or the toggle columns, to set many rows at once. Drop a layer anywhere below the last row to send it to the bottom.
+- The timeline and graph editor **scroll when a drag reaches their edge**, at the same speed on any refresh rate. **Time Remap** sits in a clip's right-click menu. Vector drawing layers show their drawing-frame blocks. The audio bar says Waveform.
+
+### Library
+
+- **A Motion tab.** Save a layer's transform animation from its keyframes as a Motion preset, and apply it to other layers.
+- **Text presets that play on hover**, including new Spring and Bounce presets; double-click applies one to a selected text layer, and **My Presets** saves your own text animators. New text layers from the Library say Hello World.
+- Library tabs are icons, and Environments are HDRIs. The Geometry Operators panel puts presets first and keeps both add buttons in view.
+
+### 3D and geometry operators
+
+- **Operators gain depth.** Offset Z, Rotate X/Y and Scale Z on geometry operators; Wiggle and Falloff work in depth; extruded shapes draw their operators, effectors and trim. Bakes keep each copy's Z position, rotation and Color operator result.
+- **Every stack has a master switch** — Effects, Geometry Operators and Effectors each get their own — plus **Copy**, **Paste** and **Reset** for a whole stack, and **Remove All Effects** at the top of the Effects menu. Effectors get their own header.
+- The falloff gizmo is a sphere, and each one has its own colour. Operator depth rows appear in 3D comps. A donut is called Donut. The Scene layer hides in a 2D comp, and the camera tool's cursor shows its sub-tool.
+
+### Text and animation
+
+- **A Range visualizer** draws the text, the range and its curve on one axis, with a Reverse button. Spring and Bounce curves for text selectors; Spring on a reveal pops up and then wobbles.
+- Canvas text editing draws its own caret on the letters you see. Multi-line text: line breaks stop counting as characters and blank lines keep their place. The Properties text field keeps line breaks.
+- **Blend Colours Using 1.0 Gamma** is a project switch, on by default, for linear-light blending. Fades and colour animation change at After Effects' rate. Ease In and Ease Out no longer flatten the other half of a custom curve.
+- Drag a layer you haven't selected, even when it has keyframes; the motion path draws live as you go. Blend-mode hover previews fold into one undo step.
+
+### Export
+
+- **Lottie export carries transform keyframes**, and shape groups get the transform item lottie-web needs to render at all. A finished Lottie job in the render queue gets a **Preview** button that opens it in the previewer.
+- SVG import: a raster embedded in the file becomes a footage layer where the file put it.
+
+### Devices
+
+- **Snaps and finished renders tap the MX Master 4** and the trackpad. The Logi Options+ plugin ships inside Brio; the haptic settings live in Settings ▸ Appearance.
+
+### Fixes
+
+- **Renders stop writing stale frames, and text stops glitching on PCs.** A GPU that keeps failing now logs three lines instead of seven million, which was what silently dropped frames.
+- Deleting the last comp empties the project instead of refusing; undoing past the root comp no longer takes the app down with it, and a command that panics is rejected instead of aborting the app.
+- Removing an effect removes its keyframes too; Copy Effect carries the edits you can see; deleting or reordering the first shape no longer eats the layer's effect keyframes.
+- Deleting a collapsed-row keyframe also deletes Scale Z, and deleting a separated scale's keyframes keeps its value. Spring and Bounce Scale Up run 36 frames at the comp's rate.
 
 ## 0.4.1 — September 9, 2026
 
