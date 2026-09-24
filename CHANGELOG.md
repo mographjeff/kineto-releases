@@ -2,6 +2,91 @@
 
 The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
 
+## 0.6.0 — September 23, 2026
+
+A week of work from the first Brio testing rounds: a new project extension, a 2D compositor that works in float, video editing that keeps up with the mouse, and a deep pass over shape layers and their operators.
+
+### Projects
+
+- **A new app icon**, in the Dock and on your `.brio` files.
+- **Projects save as `.brio`.** New projects, Save As and save-on-quit use the new extension. Every `.mfp` you already have still opens, from the Open dialog, a double-click or a drop, and saves back to itself rather than being renamed.
+
+### Compositing and preview
+
+- **32-bit float compositing.** Every 2D layer, effect, layer style, precomp, group and adjustment layer is now composited in float, like After Effects at 32 bpc, and over-range light flows through unclamped. Inner Glow and Bloom fade smoothly instead of banding into rings and stopping at a hard edge. The picture is dithered once, on the way to the screen.
+- **Preview resolution.** A Resolution menu in the viewer's zoom bar: Auto, Full, Half, Third and Quarter. Auto is Full at rest and Half while playing or scrubbing. Blurs, feathers, styles, text, nested comps, 3D scenes and particles all scale with it, and renders are always Full.
+- **A memory guard.** Brio holds on to less GPU memory between frames, and if the GPU runs out, Auto steps down a resolution instead of dropping frames.
+- Bloom on a 3D card is no longer cut square at the card's edge.
+
+### Video editing
+
+- **Scrubbing follows the mouse.** The decoder always works on the newest position you asked for, and a parked playhead shows its exact frame, even on long-GOP footage.
+- **Cuts no longer flash** in a 4K comp: a cut piece starts decoding just before its in-point.
+- **Edit Move, Slide and Slip draw live** and never leave gaps between clips. A clip can't be trimmed, rolled, slid or slipped past the end of its file. Slip shows the whole source with its in and out timecodes.
+- **Copies of the same clip share one decoder**, so a keyed copy used as a matte and the clip it cuts stay on the same frame during playback.
+- **A hidden video layer used as a track matte now plays**, including a pickwhipped matte that hasn't been saved yet.
+- **Lanes.** New Lane adds an empty lane with nothing selected. Clips can take their own label colour, and clip names show on lane segments. Double-clicking a lane clip opens its Properties.
+- **New Comp from Selection.** Right-click a clip, still, vector or comp in the Project panel for a comp at its size, with its frame rate and length when it has them (a still takes the frame rate and length of the comp you were last in). Dragging an item onto the New Comp button does the same, as does a file dragged in from Finder.
+- **Project panel hierarchy.** Folder contents indent a level, like the Layers panel, and a selected row no longer carries a purple bar. The New Comp and Import buttons wear their kinds' label colours.
+- **The Project panel shows each clip's frame rate**, so a 25 fps clip in a 30 fps comp is easy to spot. Folders, comps, video, vector, raster, audio and shapes have new drawn icons.
+
+### Audio
+
+- **Sound inside a precomp is heard**, in the preview and in the render.
+- A group's mute reaches its members, and group headers with sound show a speaker.
+
+### Shape layers
+
+- **A contents clipboard.** Right-click to copy and paste shapes and whole groups, with their paint, ops and keyframes, into any shape layer. **Copy Look** and **Paste Look** carry fill, stroke, gradients, dashes and taper on their own. Convert to Path, Ungroup and Delete are on the same menus.
+- **Layer ▸ Merge Shape Layers** folds the selected shape layers into the top one as live groups, in one undo step. Unlike Combine Shapes, every shape stays editable and keeps its own paint.
+- **Effectors are now Shape Ops**, and Repeater is Shape Repeater. A new group **Transform** op (anchor, position, scale, rotation, opacity) applies in stack order. Ops drag between positions and groups, and their keyframes follow.
+- The Contents area is resizable and scrolls. Group rows gain a twirl, an eye and a blend menu.
+- New shapes match the last one you drew, across launches, or the shape layer you just selected.
+- A donut is four bezier points, and **Points** adds more. Shift constrains a point drag to one axis.
+
+### Geometry operators
+
+- **Falloff on every effector.** Transform, Noise Displace, Step, Random Transform, Color and Plain share one Falloff: a radius, softness, sphere or linear shape, a curve with presets, invert, and **Follow** a layer or make a **New Null** to drive it. Scale a dot grid near a point, then animate the point.
+- **Grids of copies draw far faster.** Every fill and stroke of every copy used to be its own render pass; now they run as one.
+- Copies scaled up by an operator stay smooth instead of drawing faceted.
+- **Repeater can cycle through shapes**, in order or seeded at random, instead of repeating only the first one.
+- **Wiggle Transform is now Random Transform**, and its scale is no longer capped. Amp X, Y and Z accept negative values.
+- The falloff gizmo and the stack's rows show the animated value at the playhead. Null gizmo shape and size changes undo.
+
+### Effects and layer styles
+
+- **Invert**, a new effect for RGB, alpha or both. An inverted alpha no longer leaves a hard rim on anti-aliased edges.
+- **Hue/Saturation:** the channels run around the colour wheel, each grades only its own colours (the Greens channel no longer grades the whole frame), and each band has an Offset.
+- **Copy Style and Paste Style carry layer styles**, on every kind of layer. The ƒ badge ⌥-drags a layer's styles onto another layer.
+- **Text outlines are round.** A wide stroke around text no longer reads as angled and mitred.
+- **A tilted lit surface no longer shadows itself.** The blocky, slightly darker rectangles on lit cards and the default cube are gone. The Library's tiles are re-baked to match.
+
+### Import from After Effects
+
+- **File ▸ Import…** takes a BrioExport file directly.
+- **Timing and layers:** key times line up when a layer has been moved in time, and a stretched precomp comes in as the layer's speed rather than a time remap. Adjustment layers stay where they were, and an image sequence comes in as a still.
+- **Text, 3D and modifiers:** AE's ramp selectors reveal text, and imported 3D layers accept lights. An imported wiggle shows on the layer's modifier stack.
+- **Less noise:** properties you never added in AE aren't imported, footage AE mis-reports is found again, and there are no false text warnings.
+- **BrioExport 0.1.6:** the panel wears brio.art's colours, a whole row selects a comp, and the comp list scrolls by dragging.
+
+### Menus and shortcuts
+
+- **One File ▸ Import…** for every file type, including `.obj` models and After Effects exports. A vector file opens Import as Layers, which can also just add it to the Project. Import from Figma stays separate, since it takes a link rather than a file.
+- **A shorter Layer menu.** Cameras, Lights and 3D Primitives (with Plane, Cyclorama and Background) are flyouts. New Solid, New Text Layer and New Adjustment Layer left the menu; they're still on the toolbar, in the right-click New menu, in the command palette, and on ⌘⇧T for text.
+- **Composition menu:** Render… sits at the bottom, and Pre-Compose Selection… lives here now. Pre-compose leaves the new layer where the old ones were in the stack.
+- **Save Frame As…** sits with the other Save commands.
+- **⌘⇧S** is Save As, and **⌘L** locks and unlocks the selected layers.
+- Menus and the workspace list scroll instead of running off the screen.
+
+### Also
+
+- **The welcome screen can be switched off**, from the card or from Settings ▸ Appearance.
+- Turning off the infinite canvas keeps your zoom.
+- **Groups:** a new group starts collapsed, and a drop onto a closed group or folder joins it without opening it.
+- The Advanced stroke twirl stays open when you switch layers.
+- Layer rows without sound or an arrow have a tighter gap before the label colour.
+- On Linux, the file manager calls a project a "Brio motion-graphics project".
+
 ## 0.5.0 — September 17, 2026
 
 Kineto is now Brio. This release brings the store online, a full particle system, the complete layer-style set, shape layers that select like layers, an importer for After Effects projects, and a long list of timeline, Library and 3D work from the September testing rounds.
