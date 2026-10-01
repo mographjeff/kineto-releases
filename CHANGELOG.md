@@ -2,6 +2,83 @@
 
 The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
 
+## 0.7.0 — October 1, 2026
+
+Reusable layer assets, image sequences, a preview for the Project panel, soft shadows from real area lights, and video that stays on its frame through playback and nested comps.
+
+### Projects and the Project panel
+
+- **Layer assets.** Right-click layers or a group and choose Make Asset, or drag them onto the Project panel. The asset files itself under Custom Assets (Text, Vectors, Groups, Other). Double-click it, use Add to Comp, or drag it to the timeline or viewer to place an independent copy. Update Asset from Selection replaces its contents, and assets copy between projects.
+- **Project panel preview.** A thumbnail and details for the selected item: size, duration, frame rate, codec, bit depth, alpha and audio for footage, and size, layers and poster frame for comps. It also says how many times the item is used. Click the path to reveal the file.
+- **⌘1–⌘9 and ⌘\`** switch between open projects.
+- **Folders** join the selection with ⇧-click, ⌘-click and the marquee. ⌘D duplicates a folder with everything in it. Deleting a folder deletes its comps too, as in After Effects, and asks first. Deleting footage removes its layers from every comp.
+- **Columns** line up with their headers. Res, Dur and FPS resize, and they sort when you click the header.
+- **Open comps are remembered** for each project and come back when you reopen it.
+- **Quitting asks about each unsaved project** in turn, with Save, Don't Save or Cancel, and brings that project to the front while it asks. A new Untitled project with nothing in it isn't asked about.
+- Deleting the comp you're in lands on the one next to it. A project with no comp gets a Comp 1.
+
+### Video and playback
+
+- **Frame-accurate playback.** Every clip shows the frame the timeline asks for, so footage stays locked to masks, roto and keyframes during playback instead of trailing by a few frames.
+- **Nested comps behave.** Footage inside a precomp follows the precomp when you slide, trim or retime it. A comp placed twice plays and animates each copy on its own, effect keyframes included. Folders, track mattes, adjustment layers and layer styles now work inside precomps.
+- **Sharper footage.** The viewer shows footage pixel for pixel at 100%, and a paused clip shows its full-resolution frame.
+- Playback no longer darkens footage, and Half looks the same playing as paused. Auto resolution drops only when frames are actually being dropped.
+- A clip no longer freezes after the comp loops, and a decoder that stalls mid-play restarts itself.
+- A copy of a clip placed near the end of its file no longer renders black. This happened when the file's audio ran longer than its picture.
+- Brio no longer loads a whole video into memory to play its sound, which crashed on large ProRes files. Clips with no audio no longer show a speaker.
+
+### 3D, lights and shadows
+
+- **Soft shadows from area lights.** Softboxes, including Studio Setup's key light, now cast shadows sampled from across the whole light, so they're soft where they should be and hold together as the light moves back. Environment softboxes do the same.
+- Shadows from a large softbox no longer come out streaked, and an environment shadow on a cyclorama no longer comes down in steps.
+- **Camera Type.** Cameras are One-Node (aimed by rotation) or Two-Node (aimed at a point of interest), and switching keeps the view. Two-node cameras take rotation, including roll. As in After Effects, the topmost visible camera is the one that renders, so you can cut between cameras by trimming them.
+- P, S and R key the Z values too in a 3D comp, and the timeline shows Position and Scale as X · Y · Z.
+- Orbiting and dragging in a 3D comp is quicker: the viewer drops to Draft quality and at most Half resolution while you steer.
+- Lit cards no longer draw a black box around transparent areas, and a 3D null's outline tilts with its rotation.
+
+### Animation
+
+- **Parenting keeps animated layers in place.** Parenting a layer that has keyframes no longer makes it jump. Its keys are adjusted to the new parent, as in After Effects. New Null at Selection Center lands at the true centre of the selected layers.
+- **Graph editor.** Handles on either side of a keyframe stay joined (⌥ breaks them). ⌘-scroll zooms the value axis. Fit frames the selected keys' values as well as their times. ⇧-drag locks a key to whichever direction you move.
+- Motion paths with separated X and Y get curve handles.
+- The timeline ruler stays readable on long comps, with minutes and seconds past the first minute.
+- **⌘X** cuts keyframes, layers, effects and Project panel items.
+- Splitting a layer (⌘⇧D) keeps both halves' transforms, and keyframes can be dragged past the end of the comp.
+
+### Shape layers
+
+- **Stamp on Points can stamp another shape layer** on every point, with that layer's own fill and stroke.
+- **Shape Repeater gets Offset,** as in After Effects. A negative offset runs copies out from both sides of the original.
+- Falloff settings fold away behind an arrow, and the header shows whether falloff is on.
+- Looks ▸ Original restores the paint a layer had before its first look.
+
+### Colour
+
+- **The eyedropper samples anywhere on screen.** Click the comp for its exact value, or anywhere else for the colour you see, including video playing in another app.
+- **Swatches ▸ From Comp** adds every fill, stroke and gradient colour in the comp to your swatches.
+- The Color panel edits a Background layer's gradient.
+
+### Effects and layers
+
+- **Sharpen,** a new effect under Blur, with Amount, Radius and Threshold.
+- Drop Shadow has Shadow Only, on the effect and the layer style.
+- Groups and lanes take track mattes and parents.
+
+### Import
+
+- **Image sequences.** Import or drop one numbered frame (`shot_0001.png`), several frames, or a folder of them, and the whole run comes in as one clip that plays, trims, retimes and renders like video. PNG, JPEG, TIFF, EXR, TGA, BMP and WebP all work. A sequence takes the frame rate of the comp you're in (24 fps if there isn't one). To change it, use the Project panel's **Plays at … fps** field. A skipped frame number shows the frame before it. ⌥-drop a frame to bring it in as a single still.
+- **Illustrator files come in at the right size.** One point is one pixel, as in After Effects; they used to arrive at 133%. You can drag `.ai` files in from the Finder, and the import choices are now Layers and Flattened.
+- **From After Effects:** `.ai` footage comes in as editable shape layers. AE's Sharpen, Unsharp Mask and Shadow Only carry over.
+- **Trim Paths from After Effects start where AE draws them.** Imported ellipse, rectangle, polygon and star trims used to come in a quarter turn off, or running the other way.
+- PSD and Figma imports undo in one step.
+
+### Rendering and the interface
+
+- The render dialog keeps one size. Its queue stays compact and expands when you want it to, and a chime plays when the queue finishes.
+- Selected rows and clips are easier to see.
+- The web page's own right-click menu no longer appears. Esc closes every menu, and middle-drag pans the timeline from the ruler too.
+- The Assistant fills its model list from your account, defaults to the latest Opus, and supports thinking.
+
 ## 0.6.0 — September 23, 2026
 
 A week of work from the first Brio testing rounds: a new project extension, a 2D compositor that works in float, video editing that keeps up with the mouse, and a deep pass over shape layers and their operators.
