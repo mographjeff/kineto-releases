@@ -2,6 +2,57 @@
 
 The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
 
+## 0.8.0 — October 9, 2026
+
+Motion graphics and dynamics: cloners, effectors and falloffs, 2D and 3D rigid bodies, soft bodies, rope and cloth, deformers and Puppet Pin, a camera point of interest, audio EQ and compression, Package Project and floating panels.
+
+### Mograph
+
+- **Effectors.** Cloner and Shape Repeater copies are driven by effectors: Follow, Delay, Spring, Random, Image, Sound, Plexus, Tracer, Follow Spring and more. Each takes a stack of falloffs (shape, Index, Plain) that you can see and drag in the viewer.
+- **Geo Ops** (formerly Shape Ops) work on text and groups, with a categorised menu and icons. Trim Paths is now a Geo Op.
+
+### Dynamics
+
+- **Rigid bodies** in 2D and 3D, with joints, the Chain tool, forces, collision sparks and hit haptics. Replicator copies can be bodies.
+- **Soft bodies, rope and cloth** (cloth through Mesh Warp).
+- A comp-level **Dynamics World**, a cache bar, and real-world gravity on a real-world scale. Primitives come in at real sizes (6 in solids, a 6 ft Figure).
+
+### Deformers and distortion
+
+- **Bend, Twist, Taper, Bulge, Squash & Stretch and Path Deform** as point-level Geo Ops that don't clip at the layer edge.
+- **Mesh Warp, Corner Pin and Puppet Pin**, plus Roughen with torn edges.
+
+### Cameras
+
+- A keyable **point of interest**, zoom and focus. Camera links make Position or Point of Interest follow a layer.
+
+### Audio
+
+- Per-layer **EQ** with draggable knots and a **compressor**, both heard while playing and in export.
+- Solo reaches inside precomps; precomp rows show a waveform. Reversed and stretched clips stay in sync.
+
+### Playback and time
+
+- Playback steps at the comp's frame rate, as in After Effects. Transport ▸ Smooth turns it off.
+- A **Frame Rate** effect posterizes time on a layer, including shape ops and dynamics.
+
+### Projects and panels
+
+- **Package Project** collects a project and its media (and fonts, if you ask) into one zip. Paths load relative to the project.
+- **Floating panels**: Float Panel, Float Group and Dock.
+- **Info panel** (Window ▸ Info): the pixel under the mouse, and comp, layer and file details.
+- The comp background sits behind the composite, as in After Effects.
+
+### Plugins and the assistant
+
+- Plugins can keyframe effect params, run CPU pixel effects (Pixel Sort is included), open dialogs, read their own data folder, reach listed hosts, select layers and hot-reload when their .wasm changes. Effect WGSL is validated when it's added.
+- The assistant gets Stop, conversations saved per project with History, and Allow / Ask / Off permissions per tool.
+
+### Also
+
+- Graph editor: drag several keys at once; ⌥-drag the first or last key to time-stretch.
+- Background layers, a double-clicked project keeps its comp, and many fixes.
+
 ## 0.7.0 — October 1, 2026
 
 Reusable layer assets, image sequences, a preview for the Project panel, soft shadows from real area lights, and video that stays on its frame through playback and nested comps.
