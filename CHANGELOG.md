@@ -2,6 +2,10 @@
 
 The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
 
+## 0.8.1 — October 9, 2026
+
+- **Fixed:** on a Mac with a plugin installed, Brio closed as soon as it launched. This had been broken since plugins arrived in 0.7.0.
+
 ## 0.8.0 — October 9, 2026
 
 Motion graphics and dynamics: cloners, effectors and falloffs, 2D and 3D rigid bodies, soft bodies, rope and cloth, deformers and Puppet Pin, a camera point of interest, audio EQ and compression, Package Project and floating panels.
