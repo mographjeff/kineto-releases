@@ -2,6 +2,40 @@
 
 The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
 
+## 0.9.0 — November 2026
+
+Expressions and scripting: AE-style expressions with pick-whip, Brio Script with After Effects script conversion and ScriptUI panels, paragraph text boxes, vector drawing with an X-Sheet, clip transitions, After Effects shortcuts, and a Community and Learn welcome screen.
+
+### Expressions and scripting
+
+- **Expressions.** An Expression modifier with After Effects units and functions, pick-whip from properties and effect params, Expression Controls. AE imports keep their expressions live.
+- **Brio Script.** File ▸ Scripts runs scripts that create and edit layers, shapes, paths, masks, text and text animators, repeaters and trim paths, markers, comps, cameras and lights, footage and the render queue, including in comps that aren't open. Real ScriptUI panels and dialogs, a Script Console, and **Convert AE Script…** / **Request a Script…**.
+- The plugin API gains keyframes, values at any time, parenting, in/out points and comps.
+
+### Text
+
+- **Paragraph text boxes.** Drag to create, resize with handles, keyframable box size, Box properties, Convert between point and box text. Paragraph text from AE and PSD imports arrives as boxes.
+
+### Drawing and editing
+
+- **Vector drawing layers** with solid, tapered strokes, frame blocks (extend, split, roll with ⌥-drag, F5/F6), vector onion skins and an **X-Sheet** panel you can edit.
+- **Time links** and **Draw Over This Clip**; `layer.timeParent` in Brio Script.
+- **Transitions:** Dissolve, Blur Dissolve, Wipe, Push, Slide and Zoom, with audio. Right-click a cut or press ⇧⌥D; 20 frames by default.
+
+### Workspace
+
+- **Keymap presets** (Brio and After Effects) and a visual shortcut editor. Shortcuts now read correctly on Windows and Linux.
+- **Welcome screen** with Community (share, open, like, remix credit, brio:// links), Recent and **Learn** lessons, plus sample projects.
+- Design workspace, reworked Drawing layout, project tabs and workspaces in the macOS title bar, Hide UI (⇧⌘H), Labels panel, waveform lane, redesigned Settings.
+- **Viewer motion blur** with shutter angle and phase.
+- Comp settings, Dynamics and Scene presets now live in Properties; the Scene layer is retired.
+
+### Fixes
+
+- Deleting or unparenting from a rotated parent keeps the child in place; one undo relinks it.
+- The updater keeps the current version as a backup and shows download sizes.
+- Many viewer, shape, timeline, import and snapping fixes from the October tester batches.
+
 ## 0.8.1 — October 9, 2026
 
 - **Fixed:** on a Mac with a plugin installed, Brio closed as soon as it launched. This had been broken since plugins arrived in 0.7.0.
