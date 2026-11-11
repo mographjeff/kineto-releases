@@ -2,6 +2,48 @@
 
 The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
 
+## 0.10.0 — November 2026
+
+Captions and masks: caption layers with Detect Speech and word-level timing, Make Mask from a picked subject, Detect Scenes, editing inside shape groups, a Library Images shelf, and many timeline and viewer improvements.
+
+### Captions
+
+- **Caption layers.** One text layer holds a whole caption track. **Detect Speech** transcribes the audio on your Mac (Whisper, offline), or import a transcript or type a script.
+- Word-level timing, **Align Words**, a Words lane in the timeline, pop-on and highlighted words, box opacity and text shadow. Dragging a caption is one undo.
+
+### Masks and video
+
+- **AI Matte** (Effects ▸ Keying): cuts out people automatically, or click a subject (with Exclude points) and **Track** follows it through the shot in the background, with progress on the ruler. Edge Refine and colour decontamination, and it can drive a track matte.
+- **Make Mask** turns the matte into an editable mask path; **Mask ▸** makes a keyframed mask that follows the subject.
+- **Edit ▸ Detect Scenes** splits a video layer at every cut.
+
+### Shapes and Library
+
+- **Shape group isolation.** Double-click into a group in the viewer to edit its shapes while the rest fades. Pick, drag and box-select single shapes, with handles.
+- Geo Ops on a group only arrange its members; **Layer ▸ Merge Shape Layers** merges a group's shapes into one layer and keeps its Geo Ops.
+- **Library Images** shelf for papers and overlays, with folder import and multi-pick. Images come in at 100%.
+- Random Transform takes negative values.
+
+### Timeline and viewer
+
+- A **+** menu in the timeline and Layers panel header to show columns; click a column title to fit it; Layers panel columns resize.
+- The keyframe navigator sits left of the property name. Keys can go before the comp start. Transform rows open unkeyed from the twirl, and a setting makes P / S / R / A only show rows.
+- Key drags no longer stop playback. The viewer box keeps up with a timeline scrub.
+- **Fit** stays on through panel resizes until you zoom or pan, and lights up while it's on. Closing a panel gives its space to the viewer.
+- Double-click a comp layer in the viewer to open it. Scale handles snap. ⌥-click a marker to remove it.
+- **Effects menu** with fly-outs, A–Z lists and Last Effect (with a shortcut). O goes to the layer's out point, ⇧O shows Opacity.
+
+### Welcome and Learn
+
+- The welcome screen shows news and new lessons from brio.art. New Frame by Frame and Library lessons.
+
+### Fixes
+
+- Copy/Paste Easing keeps bounce, elastic, spring and hold. Comp duration reads as timecode. Gradients gain Apply to Stroke.
+- Renaming a comp or footage renames the layers still using its name.
+- Break into Layers works on big PDFs. Detect Scenes no longer cuts one frame early.
+- Many fixes from the November tester batches, on Mac and Windows.
+
 ## 0.9.0 — November 2026
 
 Expressions and scripting: AE-style expressions with pick-whip, Brio Script with After Effects script conversion and ScriptUI panels, paragraph text boxes, vector drawing with an X-Sheet, clip transitions, After Effects shortcuts, and a Community and Learn welcome screen.
