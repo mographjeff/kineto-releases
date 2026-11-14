@@ -2,6 +2,40 @@
 
 The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
 
+## 0.10.1 — November 2026
+
+Heavy video edits play smoothly, a right-click Transform menu, Track Select, shuttle playback, named new projects, and Save Incremental that switches to the new file.
+
+### Playback
+
+- Big video edits play in real time. Clips whose speed is a hair off 100% (left by Stretch) now use the fast playback reader instead of decoding exact frames.
+- Pressing play in the middle of a clip starts promptly: background prefetch steps aside while playback runs, and a starting clip gets time to deliver its first frame.
+- Many video layers no longer run out of memory. Decoded frames share one budget across all layers, and decoded audio isn't thrown away and redone on every undo.
+- macOS: if the window's web content is ever killed, Brio reloads it and Quit still works. Autosave keeps your work.
+
+### Editing
+
+- **Right-click ▸ Transform** in the viewer, timeline and Layers panel: Fit to Comp Width, Fit to Comp Height, Flip Horizontal, Flip Vertical. Acts on the clicked layer or the whole selection, as one undo.
+- **Track Select** in the timeline gutter selects a clip and everything after it (or before it) on its lane, and drags them together. ⇧A switches direction; hold ⇧ to reach across every track.
+- **Shuttle:** ⇧J / ⇧K / ⇧L play backward, pause and play forward; press again to double the speed, up to 8×.
+- Lane Stretch % and reset act on the lane's selected clips.
+- The Cut tool turns into Move while ⌥ is held.
+
+### Projects
+
+- **New Project** on the welcome screen has a Name field. It labels the tab and is the suggested file name the first time you save.
+- **Save Incremental** now switches to the new file, so the next ⌘S no longer overwrites the version you meant to keep.
+
+### Licensing
+
+- Licences are now activated and checked by brio.art instead of the old store. Licences you already have keep working.
+
+### Fixes
+
+- Muted layers grey out their waveforms, including layers inside a muted group.
+- "5.00." in Comp Duration means five minutes; a single period still means seconds.
+- Right-click menus and their fly-outs stay on screen.
+
 ## 0.10.0 — November 2026
 
 Captions and masks: caption layers with Detect Speech and word-level timing, Make Mask from a picked subject, Detect Scenes, editing inside shape groups, a Library Images shelf, and many timeline and viewer improvements.
