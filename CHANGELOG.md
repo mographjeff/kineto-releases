@@ -2,6 +2,15 @@
 
 The short version of each entry also appears in the app: **Help ▸ What's New in Brio…** (Kineto became Brio in 0.5.0.)
 
+## 0.10.2 — November 2026
+
+A licence fix for Mac.
+
+### Licensing
+
+- **Deactivate This Computer** now releases the licence on every Mac. On some Macs the seat was freed but Brio quietly put the licence back, so it couldn't be moved to another machine.
+- A refunded licence is now removed from the Mac it was used on, instead of lingering until its offline grace period ran out.
+
 ## 0.10.1 — November 2026
 
 Heavy video edits play smoothly, a right-click Transform menu, Track Select, shuttle playback, named new projects, and Save Incremental that switches to the new file.
